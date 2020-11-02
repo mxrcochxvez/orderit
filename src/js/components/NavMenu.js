@@ -1,7 +1,8 @@
 import React from 'react'
 import { Menu } from 'semantic-ui-react'
+import { withRouter } from 'react-router-dom'
 
-function NavMenu() {
+function NavMenu({ history }) {
 
   const styles = {
     whiteText: {
@@ -11,13 +12,18 @@ function NavMenu() {
   
   const [state, setState] = React.useState({})
 
-  const handleItemClick = (e, { name }) => setState({ activeItem: name })
+  const handleItemClick = (e, { name }) => {
+    setState({ activeItem: name })
+    if(name === '🛒') {
+      history.push('/cart')
+    }
+  }
     
   const { activeItem } = state
 
   return (
     <Menu style={{ backgroundColor: '#343434' }}>
-      <Menu.Item style={styles.whiteText} header>Order It</Menu.Item>
+      <Menu.Item style={styles.whiteText} header>Best Boy Donuts</Menu.Item>
       <Menu.Item
         style={styles.whiteText}
         name='aboutUs'
@@ -36,8 +42,14 @@ function NavMenu() {
         active={activeItem === 'locations'}
         onClick={handleItemClick}
       />
+      <Menu.Item
+        style={styles.whiteText}
+        name='🛒'
+        active={activeItem === '🛒'}
+        onClick={handleItemClick}
+      />
     </Menu>
   )
 }
 
-export default NavMenu
+export default withRouter(NavMenu)

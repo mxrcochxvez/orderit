@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import StateProvider from '../StateProvider'
 
 export default function Cart() {
@@ -16,7 +15,6 @@ export default function Cart() {
                     )
                 }}
             </StateProvider.Consumer>
-            <Link to="/">Go home</Link>
         </div>
     )
 }

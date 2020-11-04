@@ -1,6 +1,7 @@
 import React from 'react'
 import { Router, Switch, Route, Link } from 'react-router-dom'
 import history from '../utils/history'
+import '../../styles/Navmenu.css'
 
 import Homepage from '../pages/Homepage'
 import Cart from '../pages/Cart'
@@ -10,7 +11,7 @@ export default function NavMenu() {
     <Router history={history}>
       <nav>
         <h2>Donut Place</h2>
-        <ul>
+        <ul className="links-ul">
           <li>
             <Link to="/">Home</Link>
           </li>

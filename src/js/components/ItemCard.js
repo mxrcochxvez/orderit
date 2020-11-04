@@ -11,8 +11,6 @@ const ItemCard = ({state, dispatch, name, description, imageSrc}) => {
         description: description
       }
     })
-
-    console.log(state)
   }
 
   return (

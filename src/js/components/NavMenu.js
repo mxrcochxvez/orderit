@@ -1,55 +1,28 @@
 import React from 'react'
-import { Menu } from 'semantic-ui-react'
-import { withRouter } from 'react-router-dom'
+import { Router, Switch, Route, Link } from 'react-router-dom'
+import history from '../utils/history'
 
-function NavMenu({ history }) {
+import Homepage from '../pages/Homepage'
+import Cart from '../pages/Cart'
 
-  const styles = {
-    whiteText: {
-      color: 'white'
-    }
-  }
-  
-  const [state, setState] = React.useState({})
-
-  const handleItemClick = (e, { name }) => {
-    setState({ activeItem: name })
-    if(name === '🛒') {
-      history.push('/cart')
-    }
-  }
-    
-  const { activeItem } = state
-
+export default function NavMenu() {
   return (
-    <Menu style={{ backgroundColor: '#343434' }}>
-      <Menu.Item style={styles.whiteText} header>Best Boy Donuts</Menu.Item>
-      <Menu.Item
-        style={styles.whiteText}
-        name='aboutUs'
-        active={activeItem === 'aboutUs'}
-        onClick={handleItemClick}
-      />
-      <Menu.Item
-        style={styles.whiteText}
-        name='jobs'
-        active={activeItem === 'jobs'}
-        onClick={handleItemClick}
-      />
-      <Menu.Item
-        style={styles.whiteText}
-        name='locations'
-        active={activeItem === 'locations'}
-        onClick={handleItemClick}
-      />
-      <Menu.Item
-        style={styles.whiteText}
-        name='🛒'
-        active={activeItem === '🛒'}
-        onClick={handleItemClick}
-      />
-    </Menu>
+    <Router history={history}>
+      <nav>
+        <h2>Donut Place</h2>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/cart">Cart</Link>
+          </li>
+        </ul>
+      </nav>
+      <Switch>
+        <Route exact path="/" component={Homepage} />
+        <Route path="/cart" component={Cart} />
+      </Switch>
+    </Router>
   )
 }
-
-export default withRouter(NavMenu)

@@ -1,8 +1,6 @@
 import React from 'react'
-import { BrowserRouter as Router } from 'react-router-dom'
 import Header from '../components/Header'
 import ItemCard from '../components/ItemCard'
-import NavMenu from '../components/NavMenu'
 import OrderingMenu from '../components/OrderingMenu'
 
 import items from '../../datasource/items.json'
@@ -10,9 +8,9 @@ import StateProvider from '../StateProvider'
 import DispatchProvider from '../DispatchProvider'
 
 function Homepage() {
+
   return (
-    <Router>
-      <NavMenu />
+    <div>
       <Header />
       <OrderingMenu />
       <StateProvider.Consumer>
@@ -26,7 +24,7 @@ function Homepage() {
           </DispatchProvider.Consumer>
         )}
       </StateProvider.Consumer>
-    </Router>
+    </div>
   )
 }
 

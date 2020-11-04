@@ -10,7 +10,7 @@ export default function NavMenu() {
   return (
     <Router history={history}>
       <nav>
-        <h2>Donut Place</h2>
+        <h2>Order It</h2>
         <ul className="links-ul">
           <li>
             <Link to="/">Home</Link>

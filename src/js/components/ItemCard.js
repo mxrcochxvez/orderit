@@ -1,7 +1,7 @@
 import React from 'react'
-import { Button, Card, Image } from 'semantic-ui-react'
+import { Button, Card, Image, Popup } from 'semantic-ui-react'
 
-const ItemCard = ({state, dispatch, name, description, imageSrc}) => {
+const ItemCard = ({ state, dispatch, name, description, imageSrc }) => {
 
   const addItem = () => {
     dispatch({
@@ -14,7 +14,7 @@ const ItemCard = ({state, dispatch, name, description, imageSrc}) => {
   }
 
   return (
-    <Card.Group style={{display: 'inline-block'}}>
+    <Card.Group style={{ display: 'inline-block' }}>
       <Card style={{ margin: '1rem' }}>
         <Image
           src={imageSrc}
@@ -23,13 +23,19 @@ const ItemCard = ({state, dispatch, name, description, imageSrc}) => {
           <Card.Header>{name}</Card.Header>
           <Card.Description>
             {description}
-        </Card.Description>
+          </Card.Description>
         </Card.Content>
         <Card.Content extra>
           <div className='ui two buttons'>
-            <Button basic color='green' onClick={addItem}>
-              Add To Cart
-            </Button>
+            <Popup
+            content='Added to cart!'
+            on='click'
+            trigger={
+              <Button basic color='green' onClick={addItem}>
+                Add To Cart
+              </Button>
+            }
+            />
           </div>
         </Card.Content>
       </Card>

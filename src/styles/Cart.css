@@ -1,0 +1,9 @@
+.cart-items {
+    border: 1px solid black;
+}
+
+.cart-items .content {
+    border-bottom: 1px solid grey !important;
+    max-width: 70%;
+    padding-bottom: 1rem !important;
+}

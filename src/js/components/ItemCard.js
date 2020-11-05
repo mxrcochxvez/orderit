@@ -4,14 +4,15 @@ import { Button, Card, Image, Message } from 'semantic-ui-react'
 const styles = {
   warningMessage: {
     position: 'absolute',
-    bottom: 0,
-    left: 10
+    top: 50,
+    right: 10,
+    maxWidth: '30%'
   }
 }
 
 const ItemCard = ({ state, dispatch, name, description, imageSrc }) => {
 
-  const [open, setOpen] = React.useState(false)
+  const [added, setAdded] = React.useState(false)
 
   const addItem = () => {
     dispatch({
@@ -21,12 +22,12 @@ const ItemCard = ({ state, dispatch, name, description, imageSrc }) => {
         description: description
       }
     })
-    setOpen(true)
+    setAdded(true)
   }
 
   const hideMessage = () => {
-    if(open) {
-      setOpen(false)
+    if(added) {
+      setAdded(false)
     }
   }
 
@@ -37,12 +38,6 @@ const ItemCard = ({ state, dispatch, name, description, imageSrc }) => {
 
   return (
     <Card.Group style={{ display: 'inline-block' }}>
-      {open ? 
-        <Message warning style={styles.warningMessage}>
-          <Message.Header>Added to cart!</Message.Header>
-        </Message> :
-        <span></span>
-      }
       <Card style={{ margin: '1rem' }}>
         <Image
           src={imageSrc}
@@ -55,8 +50,8 @@ const ItemCard = ({ state, dispatch, name, description, imageSrc }) => {
         </Card.Content>
         <Card.Content extra>
           <div className='ui two buttons'>
-            <Button basic color='green' onClick={addItem}>
-              Add To Cart
+            <Button basic color={added ? 'orange' : 'green'} onClick={addItem}>
+              {added ? 'Added to cart!' : 'Add to cart'}
             </Button>
           </div>
         </Card.Content>

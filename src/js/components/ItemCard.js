@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Card, Image, Message } from 'semantic-ui-react'
+import { Button, Card, Image } from 'semantic-ui-react'
 
 const styles = {
   warningMessage: {

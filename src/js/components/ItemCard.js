@@ -1,15 +1,6 @@
 import React from 'react'
 import { Button, Card, Image } from 'semantic-ui-react'
 
-const styles = {
-  warningMessage: {
-    position: 'absolute',
-    top: 50,
-    right: 10,
-    maxWidth: '30%'
-  }
-}
-
 const ItemCard = ({ state, dispatch, name, description, imageSrc }) => {
 
   const [added, setAdded] = React.useState(false)

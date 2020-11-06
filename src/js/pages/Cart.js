@@ -1,33 +1,32 @@
 import React from 'react'
 import StateProvider from '../StateProvider'
-import { Container, Item } from 'semantic-ui-react'
+import { Layer, Container } from 'sancho'
 
 import '../../styles/Cart.css'
 
 export default function Cart() {
+
     return (
         <Container>
             <h1>Your Cart</h1>
-            <div className='cart-items'>
+            <Container>
                 <StateProvider.Consumer>
                     {(state) => {
                         return (
-                            <ul>
+                            <ul id="content">
                                 {state.map((val, i) => (
-                                    <Item.Group>
-                                        <Item>
-                                            <Item.Content>
-                                                <Item.Header>{val.name}</Item.Header>
-                                                <Item.Description>{val.description}</Item.Description>
-                                            </Item.Content>
-                                        </Item>
-                                    </Item.Group>
+                                    <Layer elevation="sm" key={i}>
+                                      <div style={{ padding: '1rem' }}>
+                                        <h1>{val.name}</h1>
+                                        <p>{val.description}</p>
+                                      </div>
+                                    </Layer>
                                 ))}
                             </ul>
                         )
                     }}
                 </StateProvider.Consumer>
-            </div>
+            </Container>
         </Container>
     )
 }

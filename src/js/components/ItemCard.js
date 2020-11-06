@@ -1,9 +1,12 @@
 import React from 'react'
-import { Button, Card, Image } from 'semantic-ui-react'
+import { Button, Layer, useTheme } from 'sancho'
+
+import '../../styles/Card.css'
 
 const ItemCard = ({ state, dispatch, name, description, imageSrc }) => {
 
   const [added, setAdded] = React.useState(false)
+  const theme = useTheme()
 
   const addItem = () => {
     dispatch({
@@ -16,38 +19,30 @@ const ItemCard = ({ state, dispatch, name, description, imageSrc }) => {
     setAdded(true)
   }
 
-  const hideMessage = () => {
-    if(added) {
+  const buttonMessage = () => {
+    if (added) {
       setAdded(false)
     }
   }
 
   React.useEffect(() => {
-    const interval = setInterval(hideMessage, 1000);
+    const interval = setInterval(buttonMessage, 400);
     return () => clearInterval(interval);
   })
 
   return (
-    <Card.Group style={{ display: 'inline-block' }}>
-      <Card style={{ margin: '1rem' }}>
-        <Image
-          src={imageSrc}
-        />
-        <Card.Content>
-          <Card.Header>{name}</Card.Header>
-          <Card.Description>
-            {description}
-          </Card.Description>
-        </Card.Content>
-        <Card.Content extra>
-          <div className='ui two buttons'>
-            <Button basic color={added ? 'orange' : 'green'} onClick={addItem}>
-              {added ? 'Added to cart!' : 'Add to cart'}
-            </Button>
-          </div>
-        </Card.Content>
-      </Card>
-    </Card.Group>
+    <Layer elevation="md" id="item-card">
+      <div>
+        <img src={imageSrc} style={{ maxWidth: '100%' }} alt='Food Item' />
+        <h1>{name}</h1>
+        <p>{description}</p>
+        <div style={{ textAlign: 'center', margin: theme.spaces.md }}>
+          <Button intent={added ? 'danger' : 'primary'} style={{ marginBottom: '1rem' }} onClick={addItem}>
+            {added ? 'Added to cart!' : 'Add to cart'}
+          </Button>
+        </div>
+      </div>
+    </Layer>
   )
 }
 

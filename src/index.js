@@ -1,8 +1,8 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './js/App';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import App from './js/App'
 import './styles/index.css'
-import 'semantic-ui-css/semantic.min.css'
+import '@emotion/css'
 
 ReactDOM.render(
   <React.StrictMode>

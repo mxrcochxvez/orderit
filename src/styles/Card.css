@@ -1,0 +1,14 @@
+#item-card {
+    max-width: 300px;
+    padding: 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+@media screen and (max-width: 698px) {
+    #item-card {
+        max-width: 100%
+    }
+}

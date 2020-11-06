@@ -1,12 +1,26 @@
-[
-    {
-        "name": "One Dozen Donuts",
-        "description": "A dozen donuts guaranteed to please.",
-        "imageSrc": "https://i2.wp.com/www.eatthis.com/wp-content/uploads/2019/12/how-to-make-donuts-20.jpg?resize=640%2C360&ssl=1"
-    },
-    {
-        "name": "Donut Holes",
-        "description": "A dozen donuts guaranteed to please.",
-        "imageSrc": "https://media.istockphoto.com/photos/glazed-doughnut-holes-picture-id186882341?k=6&m=186882341&s=612x612&w=0&h=dFI-XeOsLO3kk2NBkb9c6FDjibegilHmtihrjL7JGvQ="
-    }
-]
+{
+    "featuredItems": [
+        {
+            "name": "One Dozen Donuts",
+            "description": "A dozen donuts guaranteed to please.",
+            "imageSrc": "https://i2.wp.com/www.eatthis.com/wp-content/uploads/2019/12/how-to-make-donuts-20.jpg?resize=640%2C360&ssl=1"
+        },
+        {
+            "name": "Donut Holes",
+            "description": "A dozen donuts guaranteed to please.",
+            "imageSrc": "https://media.istockphoto.com/photos/glazed-doughnut-holes-picture-id186882341?k=6&m=186882341&s=612x612&w=0&h=dFI-XeOsLO3kk2NBkb9c6FDjibegilHmtihrjL7JGvQ="
+        }
+    ],
+    "individualItems": [
+        {
+            "name": "Single Donut",
+            "description": "For those eating alone... all alone",
+            "imageSrc": "https://krispykreme.com/App_Themes/krispykremenew/Content/images/loyalty/reward-doughnut.png"
+        },
+        {
+            "name": "Cup a' Joe",
+            "description": "The best coffee you'll ever have.",
+            "imageSrc": "https://upload.wikimedia.org/wikipedia/commons/4/45/A_small_cup_of_coffee.JPG"
+        }
+    ]
+}

@@ -1,2 +1,2 @@
 # orderit
-My take of at a mobile ordering platform.
+My take of a mobile ordering platform.

@@ -9,6 +9,7 @@ import DispatchProvider from '../DispatchProvider'
 import { Tabs, Tab } from 'sancho'
 
 import '../../styles/Home.css'
+import ItemsSwitch from '../components/ItemsSwitch'
 
 function Homepage() {
 
@@ -23,30 +24,7 @@ function Homepage() {
         <Tab id="sports">Individual Items</Tab>
       </Tabs>
       <div id="item-container">
-        {itemSwitch ?
-          <StateProvider.Consumer>
-            {(state) => (
-              <DispatchProvider.Consumer>
-                {(dispatch) => {
-                  return items.featuredItems.map((val, i) => (
-                    <ItemCard key={i} state={state} dispatch={dispatch} name={val.name} description={val.description} imageSrc={val.imageSrc} />
-                  ))
-                }}
-              </DispatchProvider.Consumer>
-            )}
-          </StateProvider.Consumer> :
-          <StateProvider.Consumer>
-            {(state) => (
-              <DispatchProvider.Consumer>
-                {(dispatch) => {
-                  return items.individualItems.map((val, i) => (
-                    <ItemCard key={i} state={state} dispatch={dispatch} name={val.name} description={val.description} imageSrc={val.imageSrc} />
-                  ))
-                }}
-              </DispatchProvider.Consumer>
-            )}
-          </StateProvider.Consumer>
-        }
+        <ItemsSwitch values={itemSwitch ? items.featuredItems : items.individualItems} />
       </div>
     </div>
   )
